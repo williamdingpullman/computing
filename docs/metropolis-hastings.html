@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -158,22 +183,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Repeat <span class="math inline">\(n\)</span> times (<span class="math inline">\(n\)</span> is set subjectively.)</p></li>
 </ol>
 <p>Use normal pdf to sample gamma distribution</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alpha=<span class="fl">2.7</span>; beta=<span class="fl">6.3</span> <span class="co"># I randomly chose alpha and beta values for the target gamma function</span>
-
-Nsim=<span class="dv">5000</span>  ## define the number of iteration 
-
-X=<span class="kw">c</span>(<span class="kw">rgamma</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="co"># initialize the chain from random starting numbers</span>
-mygamma&lt;-<span class="cf">function</span>(Nsim,alpha,beta){
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>Nsim){
-  Y=<span class="kw">rnorm</span>(<span class="dv">1</span>)
-  rho=<span class="kw">dgamma</span>(Y,alpha,beta)<span class="op">*</span><span class="kw">dnorm</span>(X[i<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span>(<span class="kw">dgamma</span>(X[i<span class="op">-</span><span class="dv">1</span>],alpha,beta)<span class="op">*</span><span class="kw">dnorm</span>(Y))
-  X[i]=X[i<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>(Y<span class="op">-</span>X[i<span class="op">-</span><span class="dv">1</span>])<span class="op">*</span>(<span class="kw">runif</span>(<span class="dv">1</span>)<span class="op">&lt;</span>rho)
-}
-X
-}
-
-<span class="kw">hist</span>(<span class="kw">mygamma</span>(Nsim,alpha,beta), <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">alpha=<span class="fl">2.7</span>; beta=<span class="fl">6.3</span> <span class="co"># I randomly chose alpha and beta values for the target gamma function</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3">Nsim=<span class="dv">5000</span>  <span class="co">## define the number of iteration </span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">X=<span class="kw">c</span>(<span class="kw">rgamma</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="co"># initialize the chain from random starting numbers</span></a>
+<a class="sourceLine" id="cb8-6" title="6">mygamma&lt;-<span class="cf">function</span>(Nsim,alpha,beta){</a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>Nsim){</a>
+<a class="sourceLine" id="cb8-8" title="8">  Y=<span class="kw">rnorm</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb8-9" title="9">  rho=<span class="kw">dgamma</span>(Y,alpha,beta)<span class="op">*</span><span class="kw">dnorm</span>(X[i<span class="dv">-1</span>])<span class="op">/</span>(<span class="kw">dgamma</span>(X[i<span class="dv">-1</span>],alpha,beta)<span class="op">*</span><span class="kw">dnorm</span>(Y))</a>
+<a class="sourceLine" id="cb8-10" title="10">  X[i]=X[i<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span>(Y<span class="op">-</span>X[i<span class="dv">-1</span>])<span class="op">*</span>(<span class="kw">runif</span>(<span class="dv">1</span>)<span class="op">&lt;</span>rho)</a>
+<a class="sourceLine" id="cb8-11" title="11">}</a>
+<a class="sourceLine" id="cb8-12" title="12">X</a>
+<a class="sourceLine" id="cb8-13" title="13">}</a>
+<a class="sourceLine" id="cb8-14" title="14"></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="kw">hist</span>(<span class="kw">mygamma</span>(Nsim,alpha,beta), <span class="dt">breaks =</span> <span class="dv">100</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
             </section>
 
@@ -236,7 +261,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

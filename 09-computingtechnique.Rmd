@@ -81,7 +81,7 @@ There are different ways to understand Newton Raphson method, but I found the me
 ![Credit of this figure: https://www.math.ubc.ca/~anstee/math104/newtonmethod.pdf](Newton.jpg) 
 
 
-Specifically, suppose that you want to calculate the root of a function $f(x)=0$. We assume the root is $r$. However, we do not that, and we randomly guess a point of $a$. Thus, we can get a tangent line with slope of $f^{'}(a)$ and a point of $(a,f(a))$. Since we know the slope and one of its points, we can write the function for this tangent line. 
+Specifically, suppose that you want to calculate the root of a function $f(x)=0$. We assume the root is $r$. However, we do not know that, and we randomly guess a point of $a$. Thus, we can get a tangent line with slope of $f^{'}(a)$ and a point of $(a,f(a))$. Since we know the slope and one of its points, we can write the function for this tangent line. 
 
 $$y-f(a)=f^{'}(a)(x-a)$$
 To calculate the $x-intercept$, namely $b$ in the figure, we can set $y=0$, and get the following:
@@ -236,42 +236,7 @@ beta_old
 
 ```
 
-$$\frac{\partial \ell} {\partial \beta} = \sum_{i=1}^{n} [y_i \frac{1}{p(\beta ^T x_i)} \frac{\partial p(\beta ^T x_i)}{\partial (\beta ^T x_i)}\frac{\partial (\beta ^T x_i)}{\partial \beta}+(1-y_i) \frac{1}{1-p(\beta ^T x_i)}(-1)\frac{\partial p(\beta ^T x_i)}{\partial (\beta ^T x_i)}\frac{\partial (\beta ^T x_i)}{\partial \beta}] $$
-$$=\sum_{i=1}^{n} [y_i \frac{1}{p(\beta ^T x_i)} \phi (\beta ^T x_i)-(1-y_i) \frac{1}{1-p(\beta ^T x_i)}\phi (\beta ^T x_i)]x_i$$
 
-$$\Phi(\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3)= p(y=1)$$
-
-
-```{R eval = FALSE}
-# Data generation
-n=500
-x1_norm<-rnorm(n)
-x2_norm<-rnorm(n)
-x3_norm<-rnorm(n)
-x_combined<-cbind(1,x1_norm,x2_norm,x3_norm)
-coefficients_new<-c(2,2,3,3)  #true regression coefficient
-inv_norm<-function(x,b){pnorm(x%*%b)}
-prob_generated<-inv_norm(x_combined,coefficients_new)
-y<-c()
-for (i in 1:n) {y[i]<-rbinom(1,1,prob_generated[i])}
-
-# Newton Raphson
-
-#We need to set random starting values.
-x_old<-c(1,1,1,1)
-tolerance=1e-3
-max_its=2000;iteration=1;difference=2
-
-while(difference>tolerance & iteration<max_its){
-  x_updated=x_old-(f_firstorder(x_old)/f_secondorder(x_old))
-  difference=abs(x_updated-x_old);
-  iteration=iteration+1;
-  x_old=x_updated
-  c_iteration<-c(c_iteration,x_updated)}
-
-plot(c_iteration,type="b")
-
-```
 
 # Metropolis Hastings
 
